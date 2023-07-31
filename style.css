@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Palanquin&family=Staatliches&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --bg-header: hsl(218, 17%, 62%);
+  --bg: hsl(233, 100%, 97%);
+  --h1-bg: hsl(275, 18%, 79%);
+  --h2-text: hsl(232, 17%, 35%);
+  --bg-h2: hsl(312, 91%, 96%);
+  --paragraph: hsl(274, 84%, 12%);
+  --white: #fff;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Staatliches', cursive;
+  background: var(--bg);
+
+  max-width: 38.4rem;
+  margin: 0 auto;
+}
+
+/* ====== HEADER ====== */
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.8rem;
+
+  padding: 3.2rem 0;
+  border-radius: 0 0 .6rem .6rem;
+
+  background: var(--bg-header);
+}
+
+h1 {
+  color: var(--white);
+  text-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+  background: var(--h1-bg);
+  width: 100%;
+  text-align: center;
+
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 3.4rem;
+  letter-spacing: 2px;
+}
+
+/* ====== MAIN ====== */
+
+main {
+  padding: 2.4rem 3.2rem;
+  display: grid;
+  gap: 3.2rem;
+}
+
+p {
+  text-align: center;
+  font-family: 'Palanquin', sans-serif;
+  font-feature-settings: 'subs' on;
+  color: var(--paragraph);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+
+  margin-bottom: 2.4rem;
+}
+
+.item {
+  position: relative;
+
+  --delay: 0.3s;
+  animation: appearance 500ms var(--delay) ease-in-out backwards;
+}
+
+.item img {
+  width: 100%;
+  border-radius: 2rem;
+
+  transition: all 550ms ease-in-out;
+}
+
+.item img:hover {
+  transform: scale(1.1);
+  filter: saturate(121%);
+}
+
+.large img {
+  aspect-ratio: 10/8;
+  object-fit: cover;
+}
+
+.high img {
+  aspect-ratio: 9/12;
+  object-fit: cover;
+}
+
+.item h2 {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  border-radius: 2rem;
+  background: var(--bg-h2);
+  padding: 0 2.4rem;
+
+  color: var(--h2-text);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 3.4rem;
+  letter-spacing: 1px;
+}
+
+.item h2:hover {
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  body {
+    max-width: 118rem;
+  }
+
+  /* ==== HEADER ==== */
+  header {
+    padding: 2.6rem 0;
+    gap: 2.6rem;
+    border-radius: 0 0 1.2rem 1.2rem;
+  }
+
+  /* ==== MAIN ==== */
+  main {
+    grid-template-areas:
+      'hdr hdr hdr'
+      'A A B'
+      'D C C';
+    gap: 4.2rem;
+  }
+
+  .text {
+    grid-area: hdr;
+    justify-content: center;
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+
+  .text p {
+    text-align: justify;
+  }
+
+  .item img {
+    height: 46rem;
+  }
+
+  .one {
+    grid-area: A;
+  }
+
+  .two {
+    grid-area: B;
+  }
+
+  .three {
+    grid-area: C;
+  }
+
+  .four {
+    grid-area: D;
+  }
+}
+
+/* === ANIMATION === */
+@keyframes appearance {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
